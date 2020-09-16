@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css" rel="stylesheet" type="text/css">
+
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+		<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/input.min.css" />
+
+
+		<title>Random Players</title>
+
+		<style type="text/css">
+
+			@media print {
+
+				button { visibility: hidden; }
+
+				input { visibility: hidden; }
+
+				.teamsArrange-1 { position:relative; margin-left: 0%; width: 100px; border: 1px solid black;}
+
+				.teamsArrange-2 { position:relative; margin-left: 25%; overflow: hidden; width: 100px; border: 1px solid black;}
+
+			}
+			
+
+			.players__area {
+
+				margin-top: 15px;
+				font-size: 20px;
+			}
+
+			.random__btn {
+
+				margin-top: 15px;
+			}
+
+			.all {
+
+				text-align: center;
+				height: 100%;
+				width: 100%;
+				overflow-y: scroll;
+				scroll-behavior: smooth;
+			}
+
+			#teams {
+
+				margin-top: 10px;
+				width: 132.4px;
+				display: none;
+
+
+			}
+
+			#players {
+
+				margin-top: 10px;
+				width: 132.4px;
+				display: none;
+
+
+			}
+
+			.normalButton {
+
+				font-size: 120%;
+				background-color: #d1cece;
+				font-weight: 600
+				border: none;
+				border-radius: 10%;
+			}
+
+			#print {
+
+				margin-top: 10px;
+				background-color: #bb9292;
+			}
+
+			.random__area {
+
+				margin-top: 10px;
+				font-size: 22px;
+			}
+
+			img {
+
+				width: 14px;
+				height: 14px;
+			}
+
+			.deletePlayer {
+
+				text-align: center;
+				background-color: lightred;
+			}
+
+			#totalPlayers {
+				font-weight: bold;
+			}
+
+
+			// Selectors
+
+			select {
+			
+			    width: 100px;
+			}
+
+
+				
+
+		</style>
+			
+
+	</head>
+
+	<body>
+
+		<div class="all">
+
+			<h1>Add Player || Total Players: <span class='players__number'></span></h1>
+
+			<input class="player__name ui input" placeholder="Enter Name"></input>
+
+			<ion-icon name="chevron-forward-circle-outline" class="player__add" color="primary" style="font-size: 2em; margin-bottom: -11px;"></ion-icon>
+			
+
+			<!-- <ion-button id="addPlayer" color="primary">Add player</ion-button> -->
+
+			<p></p>
+
+			<div class="players__area"></div>
+
+			<hr>
+
+			<div>
+				  <!--<label for="mode" id="modeForm">Mode</label>-->
+				<select id="mode__selector" name="mode" class="custom-select">
+					<option value="0">Mode</option>
+					<option value="1">Teams</option>
+					<option value="2">Random Match</option>
+				</select>
+			</div>
+			<div id="teamsForm">
+				 <!-- <label for="teams"><span id="teamsGroups">Teams</span></label> -->
+				  <select id="teams" name="teams" class="custom-select">
+				  	<option value="0" id="teamsGroups">Teams</option>
+				    <option value="1">1</option>
+				    <option value="2">2</option>
+				    <option value="3">3</option>
+				    <option value="4">4</option>
+				    <option value="5">5</option>
+				    <option value="6">6</option>
+				    <option value="7">7</option>
+				    <option value="8">8</option>
+				    <option value="9">9</option>
+				    <option value="10">10</option>
+				    <option value="11">11</option>
+				    <option value="12">12</option>
+				    <option value="13">13</option>
+				    <option value="14">14</option>
+				    <option value="15">15</option>
+				    <option value="16">16</option>
+				  </select>
+			</div>
+			<div id="playersForm">
+				  <!-- <label for="playersNum">Players / <span id="playerTeam">Team</span></label> -->
+				  <select id="players" name="players" class="custom-select">
+				  	<option value="0" class="player__team">Players/Team</option>
+				    <option value="1">1</option>
+				    <option value="2">2</option>
+				    <option value="3">3</option>
+				    <option value="4">4</option>
+				    <option value="5">5</option>
+				    <option value="6">6</option>
+				    <option value="7">7</option>
+				    <option value="8">8</option>
+				    <option value="9">9</option>
+				    <option value="10">10</option>
+				    <option value="11">11</option>
+				    <option value="12">12</option>
+				    <option value="13">13</option>
+				    <option value="14">14</option>
+				    <option value="15">15</option>
+				    <option value="16">16</option>
+				  </select>
+			</div>
+
+			<div class="bottom__area"></div>
+
+			<ion-button class="random__btn" color="medium">Random</ion-button>
+
+			<div class="random__area"></div>
+
+
+			<p></p>
+
+		</div>
+
+		
+		
+
+
+		<script src="javascript.js">
+
+
+
+
+		</script>
+		
+		
+	</body>
+
+</html>
